@@ -27,6 +27,7 @@ async function main() {
     })
   });
   
+  app.use(express.static('public'))
   app.use(bodyParser.json())
   app.use(auth)
   
