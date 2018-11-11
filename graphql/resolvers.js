@@ -10,13 +10,14 @@ function loadResolvers(dir, target) {
   const files = fs.readdirSync(__dirname + dir);
   for (const i in files) {
     const name = path.parse(files[i]).name;
-    const q = require('.' + dir + '/' + files[i]);
-    target[name] = q[name];
+    const m = require('.' + dir + '/' + files[i]);
+    
+    for(var propName in m) {
+      target[propName] = m[propName]
+    }
   }
 }
 
-// Resolver function signature
-// fieldName(obj, args, context, info) { result }
 const resolvers = {
   Query: {},
   Mutation: {}

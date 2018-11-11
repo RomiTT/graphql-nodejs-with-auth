@@ -4,9 +4,8 @@ const jsonwebtoken = require('jsonwebtoken')
 require('dotenv').config()
 
 
+// Resolver function signature:  fieldName(obj, args, context, info) { result }
 module.exports = {
-  // Resolver function signature
-  // fieldName(obj, args, context, info) { result }  
   async login (_, {email, password}) {
     const user = await User.findOne({where: {email}})
   

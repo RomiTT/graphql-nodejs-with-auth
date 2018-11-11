@@ -3,9 +3,9 @@ const bcrypt = require('bcrypt')
 const jsonwebtoken = require('jsonwebtoken')
 require('dotenv').config()
 
+
+// Resolver function signature:  fieldName(obj, args, context, info) { result }
 module.exports = {
-  // Resolver function signature
-  // fieldName(obj, args, context, info) { result }
   async signup (_, {username, email, password}) {
     const user = await User.create({
       username,
