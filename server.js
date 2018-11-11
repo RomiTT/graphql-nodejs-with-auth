@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const compression = require('compression')
 const { ApolloServer, gql } = require('apollo-server-express');
 const jwt = require('express-jwt')
 const fs = require('fs')
@@ -29,6 +30,7 @@ async function main() {
   
   app.use(express.static('public'))
   app.use(bodyParser.json())
+  app.use(compression())
   app.use(auth)
   
   const path = process.env.API_PATH
