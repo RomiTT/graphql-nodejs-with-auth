@@ -36,5 +36,5 @@ typings
 
 # Optional REPL history
 .node_repl_history
-.node_modules
-migrations/20181111062727-create-user.js
+
+migrations

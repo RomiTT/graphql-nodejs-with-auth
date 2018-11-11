@@ -1,22 +1,15 @@
 const {makeExecutableSchema} = require('graphql-tools')
-const resolvers = require('./resolvers')
+const {importSchema} = require('graphql-import')
+const path = require('path');
+const fs = require('fs')
+
 
 // Define our schema using the GraphQL schema language
-const typeDefs = `
-  type User {
-    id: Int!
-    username: String!
-    email: String!
-  }
-
-  type Query {
-    me: User
-  }
-
-  type Mutation {
-    signup (username: String!, email: String!, password: String!): String
-    login (email: String!, password: String!): String
-  }
-`
+const typeDefs = fs.readFileSync(__dirname+'/schema.gql', 'utf8')
+//const typeDefs = importSchema('schema.gql')
+const resolvers = require('./resolvers')
+console.log(resolvers)
+var result = makeExecutableSchema({typeDefs, resolvers})
+console.log(result)
 
 module.exports = makeExecutableSchema({typeDefs, resolvers})
