@@ -14,8 +14,8 @@ const auth = jwt({
 })
 
 async function main() {
-  const typeDefs = gql(await readFile(__dirname+'/data/schema.gql', 'utf8'))
-  const resolvers = require('./data/resolvers') 
+  const typeDefs = gql(await readFile(__dirname+'/graphql/schema.gql', 'utf8'))
+  const resolvers = require('./graphql/resolvers') 
   
   // create our express app
   const app = express()
