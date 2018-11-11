@@ -18,6 +18,7 @@ const resolvers = {
 
       // user is authenticated
       return await User.findById(user.id)
+      
     }
   },
 
