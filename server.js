@@ -7,8 +7,6 @@ const {promisify} = require('util')
 const readFile = promisify(fs.readFile)
 require('dotenv').config()
 
-const PORT = 3000
-
 const auth = jwt({
   secret: process.env.JWT_SECRET,
   credentialsRequired: false
@@ -32,11 +30,11 @@ async function main() {
   app.use(bodyParser.json())
   app.use(auth)
   
-  const path = '/graphql'
+  const path = process.env.API_PATH
   server.applyMiddleware({app, path})
   
-  app.listen(PORT, () => {
-    console.log(`The server is running on http://localhost:${PORT}${path}`)
+  app.listen(process.env.SERVICE_PORT, () => {
+    console.log(`The server is running on http://localhost:${process.env.SERVICE_PORT}${path}`)
   })
 }
 
