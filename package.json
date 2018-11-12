@@ -21,6 +21,7 @@
     "graphql-import": "^0.7.1",
     "graphql-playground-middleware-express": "^1.7.6",
     "graphql-tools": "^4.0.3",
+    "graphql-voyager": "^1.0.0-rc.26",
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.6.4",
     "sequelize": "^4.41.1",
