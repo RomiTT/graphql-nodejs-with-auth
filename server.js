@@ -1,7 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const compression = require('compression')
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer, gql } = require('apollo-server-express')
+const expressPlayground = require('graphql-playground-middleware-express')
 const jwt = require('express-jwt')
 const fs = require('fs')
 const {promisify} = require('util')
@@ -32,6 +33,8 @@ async function main() {
   app.use(bodyParser.json())
   app.use(compression())
   app.use(auth)
+
+  app.get('/playground', expressPlayground.default({ endpoint: '/graphql' }))
   
   const path = process.env.API_PATH
   server.applyMiddleware({app, path})
