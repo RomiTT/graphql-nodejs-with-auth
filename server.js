@@ -10,15 +10,15 @@ const {promisify} = require('util')
 const readFile = promisify(fs.readFile)
 require('dotenv').config()
 
+const typeDefs = require('./graphql/schema')
+const resolvers = require('./graphql/resolvers') 
+
 const auth = jwt({
   secret: process.env.JWT_SECRET,
   credentialsRequired: false
 })
 
-async function main() {
-  const typeDefs = gql(await readFile(__dirname+'/graphql/schema.gql', 'utf8'))
-  const resolvers = require('./graphql/resolvers') 
-  
+async function main() {  
   // create our express app
   const app = express()
   

@@ -7,6 +7,12 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "subscription server",
+      "program": "${workspaceFolder}/subscription-server.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "server",
       "program": "${workspaceFolder}\\server.js"
     }
