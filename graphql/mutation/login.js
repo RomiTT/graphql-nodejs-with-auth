@@ -1,7 +1,6 @@
 const {User} = require('../../models')
 const bcrypt = require('bcrypt')
 const jsonwebtoken = require('jsonwebtoken')
-const { PubSub } = require('apollo-server');
 require('dotenv').config()
 
 
